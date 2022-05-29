@@ -7,6 +7,7 @@ import { component$, Host } from "@builder.io/qwik";
 import { ClockApp } from "./clock";
 import { TodoApp } from "./todo/todo";
 import { Styling } from "./styles/styling";
+import { ArchApp } from "./arch/my-app";
 
 export const Index = component$(() => {
   return (
@@ -34,7 +35,7 @@ export const Index = component$(() => {
           <a href="/todo">To do</a>
         </li>
         <li>
-          <a href="/architecture">[TODO] Architecture comparison</a>
+          <a href="/architecture">Architecture comparison</a>
         </li>
       </ul>
     </Host>
@@ -50,6 +51,7 @@ export const router = new Router({
   "/hn/(.*)": { Page: HackerNews },
   "/todo": { Page: TodoApp },
   "/styling": { Page: Styling },
+  "/architecture": { Page: ArchApp },
 });
 
 export const Root = (props: { url: string }) => {
