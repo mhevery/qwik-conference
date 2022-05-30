@@ -1,4 +1,4 @@
-import { App } from "./components/app/app";
+import { HelloWorld } from "./hello-world";
 import { Counter } from "./counter";
 import { Reactivity } from "./reactivity";
 import { HackerNews } from "./hackernews/main";
@@ -14,28 +14,31 @@ export const Index = component$(() => {
     <Host>
       <ul>
         <li>
-          <a href="/hello">Hello World</a>
+          <a href="/hello">Hello World</a> - Understanding basic app.
         </li>
         <li>
-          <a href="/counter">Counter</a>
+          <a href="/counter">Counter</a> - Understanding lazy loading and
+          closure serialization.
         </li>
         <li>
-          <a href="/reactivity">Reactivity</a>
+          <a href="/reactivity">Reactivity</a> - Understanding reactivity
+          created on server and transferred to client.
         </li>
         <li>
-          <a href="/clock">Clock</a>
+          <a href="/clock">Clock</a> - Understanding visible intersections.
+        </li>
+        <li>
+          <a href="/hn/">Hacker News</a> - Understanding data-shaking.
+        </li>
+        <li>
+          <a href="/todo">To do</a> - Understanding resumability.
+        </li>
+        <li>
+          <a href="/architecture">Architecture comparison</a> Understanding how
+          the mental model is different.
         </li>
         <li>
           <a href="/styling">Styling</a>
-        </li>
-        <li>
-          <a href="/hn/">Hacker News</a>
-        </li>
-        <li>
-          <a href="/todo">To do</a>
-        </li>
-        <li>
-          <a href="/architecture">Architecture comparison</a>
         </li>
       </ul>
     </Host>
@@ -44,7 +47,7 @@ export const Index = component$(() => {
 
 export const router = new Router({
   "/(.*)": { Page: Index },
-  "/hello": { Page: App },
+  "/hello": { Page: HelloWorld },
   "/counter": { Page: Counter },
   "/reactivity": { Page: Reactivity },
   "/clock": { Page: ClockApp },

@@ -41,17 +41,20 @@ export interface HackerNewsProps {
   url: string;
 }
 
-export const HackerNews = component$(async (props: HackerNewsProps) => {
-  useStyles$(CSS);
-  const {
-    handler: { Page, getData },
-    params,
-  } = router.find(new URL(props.url).pathname)!;
-  const data = await getData(new URL(props.url), params as { id: string });
-  return (
-    <>
-      <Nav />
-      <Page path={props.url} params={params} data={data} />
-    </>
-  );
-});
+export const HackerNews = component$(
+  async (props: HackerNewsProps) => {
+    useStyles$(CSS);
+    const {
+      handler: { Page, getData },
+      params,
+    } = router.find(new URL(props.url).pathname)!;
+    const data = await getData(new URL(props.url), params as { id: string });
+    return (
+      <>
+        <Nav />
+        <Page path={props.url} params={params} data={data} />
+      </>
+    );
+  },
+  { tagName: "hacker-news" }
+);
