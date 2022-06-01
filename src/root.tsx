@@ -12,35 +12,72 @@ import { ArchApp } from "./arch/my-app";
 export const Index = component$(() => {
   return (
     <Host>
-      <ul>
-        <li>
-          <a href="/hello">Hello World</a> - Understanding basic app.
-        </li>
-        <li>
-          <a href="/counter">Counter</a> - Understanding lazy loading and
-          closure serialization.
-        </li>
-        <li>
-          <a href="/reactivity">Reactivity</a> - Understanding reactivity
-          created on server and transferred to client.
-        </li>
-        <li>
-          <a href="/clock">Clock</a> - Understanding visible intersections.
-        </li>
-        <li>
-          <a href="/hn/">Hacker News</a> - Understanding data-shaking.
-        </li>
-        <li>
-          <a href="/todo">To do</a> - Understanding resumability.
-        </li>
-        <li>
-          <a href="/architecture">Architecture comparison</a> Understanding how
-          the mental model is different.
-        </li>
-        <li>
-          <a href="/styling">Styling</a>
-        </li>
-      </ul>
+      <table>
+        <tr>
+          <th></th>
+          <th>Demo</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>🔩</td>
+          <td>
+            <a href="/hello">Hello World</a>
+          </td>
+          <td>Understanding basic static app.</td>
+        </tr>
+        <tr>
+          <td>🔢</td>
+          <td>
+            <a href="/counter">Counter</a>
+          </td>
+          <td>Understanding lazy loading and closure serialization.</td>
+        </tr>
+        <tr>
+          <td>⚡️</td>
+          <td>
+            <a href="/reactivity">Reactivity</a>
+          </td>
+          <td>
+            Understanding reactivity created on server and transferred to
+            client.
+          </td>
+        </tr>
+        <tr>
+          <td>⏰</td>
+          <td>
+            <a href="/clock">Clock</a>
+          </td>
+          <td>Understanding visible intersections.</td>
+        </tr>
+        <tr>
+          <td>📰</td>
+          <td>
+            <a href="/hn/">Hacker News</a>
+          </td>
+          <td>Understanding data-shaking.</td>
+        </tr>
+        <tr>
+          <td>✅</td>
+          <td>
+            <a href="/todo">To do</a>
+          </td>
+          <td>Understanding resumability.</td>
+        </tr>
+        <tr>
+          <td>🏛</td>
+          <td>
+            <a href="/architecture">Architecture comparison</a>
+          </td>
+          <td>Understanding how the mental model is different</td>
+        </tr>
+        <tr>
+          <td>🌅</td>
+          <td>
+            <a href="/styling">Styling</a>
+          </td>
+          <td>Understanding styling lazy loading.</td>
+        </tr>
+      </table>
     </Host>
   );
 });
