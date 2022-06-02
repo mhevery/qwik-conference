@@ -8,6 +8,7 @@ import { ClockApp } from "./clock";
 import { TodoApp } from "./todo/todo";
 import { Styling } from "./styles/styling";
 import { ArchApp } from "./arch/my-app";
+import { AllTogether } from "./all-together";
 
 export const Index = component$(() => {
   return (
@@ -77,6 +78,13 @@ export const Index = component$(() => {
           </td>
           <td>Understanding styling lazy loading.</td>
         </tr>
+        <tr>
+          <td>*️⃣</td>
+          <td>
+            <a href="/all">All</a>
+          </td>
+          <td>All together</td>
+        </tr>
       </table>
     </Host>
   );
@@ -84,6 +92,7 @@ export const Index = component$(() => {
 
 export const router = new Router({
   "/(.*)": { Page: Index },
+  "/all": { Page: AllTogether },
   "/hello": { Page: HelloWorld },
   "/counter": { Page: Counter },
   "/reactivity": { Page: Reactivity },
