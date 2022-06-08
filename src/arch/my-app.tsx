@@ -3,12 +3,18 @@ import { ArchExamples, Cmp } from "./architecture";
 /* eslint no-console: ["off"] */
 
 export const monolith = createApp();
+export const lazy = createApp();
 export const islands = createApp();
-export const uIslets = createApp();
+export const resumables = createApp();
 
 export const ArchApp = component$(() => {
   return (
-    <ArchExamples monolith={monolith} islands={islands} uIslets={uIslets} />
+    <ArchExamples
+      monolith={monolith}
+      lazy={lazy}
+      islands={islands}
+      resumables={resumables}
+    />
   );
 });
 

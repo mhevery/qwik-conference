@@ -12,3 +12,13 @@ export const Counter = component$(() => {
     </div>
   );
 });
+
+////////////////////////////////////////////////////////////////////////////////
+
+// export const Counter_onClick = () => store.count++;
+
+// import { useLexicalScope } from "@builder.io/qwik";
+// export const Counter_onClick = () => {
+//   const [store] = useLexicalScope();
+//   store.count++;
+// };

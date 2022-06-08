@@ -18,10 +18,10 @@ export interface Cmp {
   related?: Cmp;
 }
 
-type ArchMode = "monolith" | "island" | "uIslet";
+type ArchMode = "monolith" | "lazy-monolith" | "island" | "resumable";
 
 export const ArchExamples = component$(
-  (props: { monolith: Cmp; islands: Cmp; uIslets: Cmp }) => {
+  (props: { monolith: Cmp; lazy: Cmp; islands: Cmp; resumables: Cmp }) => {
     useStyles$(CSS);
     return (
       <>
@@ -33,6 +33,16 @@ export const ArchExamples = component$(
             cmp={props.monolith}
             arch="monolith"
             class={getCmpClass(props.monolith, "app")}
+          />
+        </Browser>
+        <h1>Lazy Monolith</h1>
+        <b>Examples:</b> Angular, React, Solid, Svelte, Vue, WebComponents
+        <LazyScrubber cmp={props.lazy} />
+        <Browser class="lazy-monolith">
+          <Component
+            cmp={props.lazy}
+            arch="lazy-monolith"
+            class={getCmpClass(props.lazy, "app")}
           />
         </Browser>
         <h1>Island</h1>
@@ -49,18 +59,17 @@ export const ArchExamples = component$(
           <li>No standard way of doing inter-island communication.</li>
           <li>Creating islands is a heavy weight operation.</li>
         </ul>
-        <h1>
-          µIslet &nbsp;
-          <img
-            width={100}
-            src="https://camo.githubusercontent.com/3518364b161ab1351455c0f3774d01973e25602a4b63a3e9129c21deddb2f223/68747470733a2f2f63646e2e6275696c6465722e696f2f6170692f76312f696d6167652f617373657473253246594a494762346930316a7677305352644c3542742532463636376162366332323833643463346438373866623930383361616363313066"
-          />
-        </h1>
+        <h1>Resumable</h1>
+        <b>Examples:</b> Qwik &nbsp;
+        <img
+          width={100}
+          src="https://camo.githubusercontent.com/3518364b161ab1351455c0f3774d01973e25602a4b63a3e9129c21deddb2f223/68747470733a2f2f63646e2e6275696c6465722e696f2f6170692f76312f696d6167652f617373657473253246594a494762346930316a7677305352644c3542742532463636376162366332323833643463346438373866623930383361616363313066"
+        />
         <Browser class="uIselt">
           <Component
-            cmp={props.uIslets}
-            arch="uIslet"
-            class={getCmpClass(props.uIslets, "app")}
+            cmp={props.resumables}
+            arch="resumable"
+            class={getCmpClass(props.resumables, "app")}
           />
         </Browser>
       </>
@@ -98,7 +107,7 @@ export const Component = component$(
                 hydrateComponents(props.cmp, 200, 2);
               }
               break;
-            case "uIslet":
+            case "resumable":
               if (event.target == element) {
                 props.cmp.isHydrated = true;
                 if (props.cmp.related) {
@@ -144,13 +153,6 @@ export const MonolithScrubber = component$((props: { cmp: Cmp }) => {
           Browser executes application Javascript and starts the reconciliation
           process.
         </li>
-        <li class={store.step >= 4 ? "active" : ""}>
-          Framework requests the lazy loaded components because they are
-          visible.
-        </li>
-        <li class={store.step >= 5 ? "active" : ""}>
-          Framework completes the rehydration of the application.
-        </li>
       </ol>
       <button onClick$={() => monolithUpdate(props.cmp, ++store.step)}>
         &gt;&gt;&gt;
@@ -159,7 +161,45 @@ export const MonolithScrubber = component$((props: { cmp: Cmp }) => {
   );
 });
 
+export const LazyScrubber = component$((props: { cmp: Cmp }) => {
+  const store = useStore({ step: 1 });
+  return (
+    <>
+      <ol>
+        <li class={store.step >= 1 ? "active" : ""}>
+          SSR HTML sent from the server and rendered by browser.
+        </li>
+        <li class={store.step >= 2 ? "active" : ""}>
+          Browser downloads application Javascript.
+        </li>
+        <li class={store.step >= 3 ? "active" : ""}>
+          Browser executes application Javascript and starts the reconciliation
+          process.
+        </li>
+        <li class={store.step >= 4 ? "active" : ""}>
+          Framework requests the lazy loaded components because they are
+          visible.
+        </li>
+        <li class={store.step >= 5 ? "active" : ""}>
+          Framework completes the rehydration of the application.
+        </li>
+      </ol>
+      <button onClick$={() => lazyMonolithUpdate(props.cmp, ++store.step)}>
+        &gt;&gt;&gt;
+      </button>
+    </>
+  );
+});
+
 export function monolithUpdate(cmp: Cmp, step: number) {
+  switch (step) {
+    case 3:
+      hydrateComponents(cmp, 300, 2);
+      break;
+  }
+}
+
+export function lazyMonolithUpdate(cmp: Cmp, step: number) {
   switch (step) {
     case 3:
       hydrateComponents(cmp, 300, 1);
