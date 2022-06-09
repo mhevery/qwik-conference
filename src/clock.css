@@ -5,10 +5,10 @@
   border: 10px solid #7a7a7a;
   border-radius: 50%;
   box-sizing: border-box;
-  height: 300px;
+  height: 200px;
   margin: 0 auto;
   position: relative;
-  width: 300px;
+  width: 200px;
 }
 
 .twelve,
@@ -57,13 +57,13 @@
   background: #333;
   position: absolute;
   left: 50%;
-  top: 80px;
+  top: 30px;
   animation: tick 43200s infinite linear;
   -webkit-animation: tick 43200s infinite linear;
 }
 
 .minute {
-  height: 100px;
+  height: 50px;
   width: 4px;
   background: #777;
   position: absolute;
@@ -74,7 +74,7 @@
 }
 
 .second {
-  height: 120px;
+  height: 70px;
   width: 3px;
   background: #fc0505;
   position: absolute;

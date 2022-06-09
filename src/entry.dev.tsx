@@ -1,5 +1,5 @@
-import { render } from '@builder.io/qwik';
-import { Root } from './root';
+import { render } from "@builder.io/qwik";
+import { Root } from "./root";
 
 /**
  * Development entry point using only client-side modules:
@@ -10,4 +10,4 @@ import { Root } from './root';
  * - More code is transferred to the browser than in SSR mode.
  * - Optimizer/Serialization/Deserialization code is not exercised!
  */
-render(document, <Root />);
+render(document, <Root url="SHOULD_NOT_RUN_ON_CLIENT" />);
