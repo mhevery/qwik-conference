@@ -100,7 +100,9 @@ export const Component = component$(
       <Host
         class={getCmpClass(props.cmp)}
         onClick$={async (event) => {
-          const element = useHostElement();
+          // const element = useHostElement();
+          const element = (event as any).processed ? null : event.target;
+          (event as any).processed = true;
           switch (props.arch) {
             case "island":
               if (props.cmp.isLazy) {
@@ -108,7 +110,7 @@ export const Component = component$(
               }
               break;
             case "resumable":
-              if (event.target == element) {
+              if (element) {
                 props.cmp.isHydrated = true;
                 if (props.cmp.related) {
                   await delay(200);

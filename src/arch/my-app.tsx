@@ -1,24 +1,25 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStore } from "@builder.io/qwik";
 import { ArchExamples, Cmp } from "./architecture";
 /* eslint no-console: ["off"] */
 
-export const monolith = createApp();
-export const lazy = createApp();
-export const islands = createApp();
-export const resumables = createApp();
-
 export const ArchApp = component$(() => {
+  const store = useStore({
+    monolith: createApp(),
+    lazy: createApp(),
+    islands: createApp(),
+    resumables: createApp(),
+  });
   return (
     <ArchExamples
-      monolith={monolith}
-      lazy={lazy}
-      islands={islands}
-      resumables={resumables}
+      monolith={store.monolith}
+      lazy={store.lazy}
+      islands={store.islands}
+      resumables={store.resumables}
     />
   );
 });
 
-function createApp(): Cmp {
+export function createApp(): Cmp {
   const product = { class: "product" } as Cmp;
   const cart = {} as Cmp;
   return {
