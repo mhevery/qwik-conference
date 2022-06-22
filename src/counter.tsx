@@ -8,6 +8,7 @@ export const Counter = component$(() => {
       <p>Count: {store.count}</p>
       <p>
         <button onClick$={() => store.count++}>Click</button>
+        <button onClick$={() => console.log("ABC")}>Hello</button>
       </p>
     </div>
   );

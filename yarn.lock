@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@builder.io/qwik@0.0.24":
-  version "0.0.24"
-  resolved "https://registry.yarnpkg.com/@builder.io/qwik/-/qwik-0.0.24.tgz#360cbae87b73486f18f3973621a2057a8a9fb867"
-  integrity sha512-0N/SdOMOCwhsJfMT0gC5Om2103Qwgr39zRihgj12drIdnP9yLjboLe/qzpBQY6eZ6aY4EaSSDjWil7dlZbuaEg==
+"@builder.io/qwik@0.0.30":
+  version "0.0.30"
+  resolved "https://registry.yarnpkg.com/@builder.io/qwik/-/qwik-0.0.30.tgz#4adf79d24a419797b8313d9408d471f67e2c2e90"
+  integrity sha512-iGyJWs1Xl8Oy9ngQ0NEIRsYu8lN+RlGItdIrUDGhJGunrYVdaBNzxgw8E82At0awtJ8afghTcl4vjJ2WlScIYQ==
 
 "@eslint/eslintrc@^1.2.3":
   version "1.3.0"

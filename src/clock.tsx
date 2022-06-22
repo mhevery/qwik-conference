@@ -27,6 +27,7 @@ export const ClockApp = component$(() => {
       </ul>
 
       <Clock />
+      <Clock />
     </div>
   );
 });

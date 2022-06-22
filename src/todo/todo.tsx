@@ -40,14 +40,17 @@ export const FILTERS = {
 export const TodoApp = component$(() => {
   useStyles$(styles);
 
-  const todos = useStore<Todos>({
-    filter: "all",
-    items: [
-      { completed: false, title: "Read Qwik docs" },
-      { completed: false, title: "Build HelloWorld" },
-      { completed: false, title: "Profit" },
-    ],
-  });
+  const todos = useStore<Todos>(
+    {
+      filter: "all",
+      items: [
+        { completed: false, title: "Read Qwik docs" },
+        { completed: false, title: "Build HelloWorld" },
+        { completed: false, title: "Profit" },
+      ],
+    },
+    { recursive: true }
+  );
   useContextProvider(TODOS, todos);
 
   return (
