@@ -3,12 +3,15 @@ import { ArchExamples, Cmp } from "./architecture";
 /* eslint no-console: ["off"] */
 
 export const ArchApp = component$(() => {
-  const store = useStore({
-    monolith: createApp(),
-    lazy: createApp(),
-    islands: createApp(),
-    resumables: createApp(),
-  });
+  const store = useStore(
+    {
+      monolith: createApp(),
+      lazy: createApp(),
+      islands: createApp(),
+      resumables: createApp(),
+    },
+    { recursive: true }
+  );
   return (
     <ArchExamples
       monolith={store.monolith}

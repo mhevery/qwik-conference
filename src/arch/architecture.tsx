@@ -141,7 +141,7 @@ export function getCmpClass(cmp: Cmp, ...additionalClasses: string[]) {
 }
 
 export const MonolithScrubber = component$((props: { cmp: Cmp }) => {
-  const store = useStore({ step: 1 });
+  const store = useStore({ step: 1 }, { recursive: true });
   return (
     <>
       <ol>
@@ -164,7 +164,7 @@ export const MonolithScrubber = component$((props: { cmp: Cmp }) => {
 });
 
 export const LazyScrubber = component$((props: { cmp: Cmp }) => {
-  const store = useStore({ step: 1 });
+  const store = useStore({ step: 1 }, { recursive: true });
   return (
     <>
       <ol>
