@@ -11,7 +11,7 @@ export const ClockApp = component$(() => {
 
   return (
     <div>
-      <p>
+      <p onClick$={() => console.log("test")}>
         This is an example of Lazy executing code on component when component
         becomes visible.
       </p>
